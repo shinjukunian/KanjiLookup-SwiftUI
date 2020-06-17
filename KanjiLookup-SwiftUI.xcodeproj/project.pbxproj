@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A187591249A011700C966E5 /* kanjiDict.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A187590249A011700C966E5 /* kanjiDict.txt */; };
+		5A187593249A013800C966E5 /* KanjiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A187592249A013800C966E5 /* KanjiDictionary.swift */; };
+		5A187596249A0D1D00C966E5 /* Recognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A187595249A0D1D00C966E5 /* Recognizer.swift */; };
 		5A697F1A2499DDF400F8A9FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F192499DDF400F8A9FF /* AppDelegate.swift */; };
 		5A697F1C2499DDF400F8A9FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F1B2499DDF400F8A9FF /* SceneDelegate.swift */; };
 		5A697F1E2499DDF400F8A9FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F1D2499DDF400F8A9FF /* ContentView.swift */; };
@@ -14,6 +17,11 @@
 		5A697F232499DDF900F8A9FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A697F222499DDF900F8A9FF /* Preview Assets.xcassets */; };
 		5A697F262499DDF900F8A9FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A697F242499DDF900F8A9FF /* LaunchScreen.storyboard */; };
 		5A697F312499DDFA00F8A9FF /* KanjiLookup_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F302499DDFA00F8A9FF /* KanjiLookup_SwiftUITests.swift */; };
+		5A697F3C2499E47700F8A9FF /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F3B2499E47700F8A9FF /* CanvasView.swift */; };
+		5A7C0E2D249A2CD900CEDD58 /* StringTools in Frameworks */ = {isa = PBXBuildFile; productRef = 5A7C0E2C249A2CD900CEDD58 /* StringTools */; };
+		5A9B3734249A2B7B008FA727 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B3733249A2B7B008FA727 /* Extensions.swift */; };
+		5AB2E8A6249A131800854EBB /* zinnia.model in Resources */ = {isa = PBXBuildFile; fileRef = 5A187594249A055800C966E5 /* zinnia.model */; };
+		5AB2E8B6249A289300854EBB /* Zinnia-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB2E8B5249A289300854EBB /* Zinnia-Swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A187590249A011700C966E5 /* kanjiDict.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kanjiDict.txt; sourceTree = "<group>"; };
+		5A187592249A013800C966E5 /* KanjiDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiDictionary.swift; sourceTree = "<group>"; };
+		5A187594249A055800C966E5 /* zinnia.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = zinnia.model; sourceTree = "<group>"; };
+		5A187595249A0D1D00C966E5 /* Recognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recognizer.swift; sourceTree = "<group>"; };
 		5A697F162499DDF400F8A9FF /* KanjiLookup-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KanjiLookup-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A697F192499DDF400F8A9FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A697F1B2499DDF400F8A9FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +50,9 @@
 		5A697F2C2499DDFA00F8A9FF /* KanjiLookup-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KanjiLookup-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A697F302499DDFA00F8A9FF /* KanjiLookup_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiLookup_SwiftUITests.swift; sourceTree = "<group>"; };
 		5A697F322499DDFA00F8A9FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A697F3B2499E47700F8A9FF /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		5A9B3733249A2B7B008FA727 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5AB2E8AE249A236200854EBB /* StringTools */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StringTools; path = ../KanjiLookup/Kanjidictionary/StringTools; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB2E8B6249A289300854EBB /* Zinnia-Swift in Frameworks */,
+				5A7C0E2D249A2CD900CEDD58 /* StringTools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +81,7 @@
 				5A697F182499DDF400F8A9FF /* KanjiLookup-SwiftUI */,
 				5A697F2F2499DDFA00F8A9FF /* KanjiLookup-SwiftUITests */,
 				5A697F172499DDF400F8A9FF /* Products */,
+				5A697F3E2499FCC000F8A9FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,11 +98,17 @@
 			isa = PBXGroup;
 			children = (
 				5A697F192499DDF400F8A9FF /* AppDelegate.swift */,
+				5A9B3733249A2B7B008FA727 /* Extensions.swift */,
 				5A697F1B2499DDF400F8A9FF /* SceneDelegate.swift */,
 				5A697F1D2499DDF400F8A9FF /* ContentView.swift */,
+				5A697F3B2499E47700F8A9FF /* CanvasView.swift */,
+				5A187595249A0D1D00C966E5 /* Recognizer.swift */,
+				5A187592249A013800C966E5 /* KanjiDictionary.swift */,
 				5A697F1F2499DDF900F8A9FF /* Assets.xcassets */,
 				5A697F242499DDF900F8A9FF /* LaunchScreen.storyboard */,
 				5A697F272499DDF900F8A9FF /* Info.plist */,
+				5A187590249A011700C966E5 /* kanjiDict.txt */,
+				5A187594249A055800C966E5 /* zinnia.model */,
 				5A697F212499DDF900F8A9FF /* Preview Content */,
 			);
 			path = "KanjiLookup-SwiftUI";
@@ -107,6 +131,14 @@
 			path = "KanjiLookup-SwiftUITests";
 			sourceTree = "<group>";
 		};
+		5A697F3E2499FCC000F8A9FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AB2E8AE249A236200854EBB /* StringTools */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +155,10 @@
 			dependencies = (
 			);
 			name = "KanjiLookup-SwiftUI";
+			packageProductDependencies = (
+				5AB2E8B5249A289300854EBB /* Zinnia-Swift */,
+				5A7C0E2C249A2CD900CEDD58 /* StringTools */,
+			);
 			productName = "KanjiLookup-SwiftUI";
 			productReference = 5A697F162499DDF400F8A9FF /* KanjiLookup-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +209,10 @@
 				Base,
 			);
 			mainGroup = 5A697F0D2499DDF400F8A9FF;
+			packageReferences = (
+				5AB2E8B4249A289300854EBB /* XCRemoteSwiftPackageReference "zinnia-swift" */,
+				5A7C0E2B249A2CD900CEDD58 /* XCRemoteSwiftPackageReference "StringTools" */,
+			);
 			productRefGroup = 5A697F172499DDF400F8A9FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -188,6 +228,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A187591249A011700C966E5 /* kanjiDict.txt in Resources */,
+				5AB2E8A6249A131800854EBB /* zinnia.model in Resources */,
 				5A697F262499DDF900F8A9FF /* LaunchScreen.storyboard in Resources */,
 				5A697F232499DDF900F8A9FF /* Preview Assets.xcassets in Resources */,
 				5A697F202499DDF900F8A9FF /* Assets.xcassets in Resources */,
@@ -210,7 +252,11 @@
 			files = (
 				5A697F1A2499DDF400F8A9FF /* AppDelegate.swift in Sources */,
 				5A697F1C2499DDF400F8A9FF /* SceneDelegate.swift in Sources */,
+				5A697F3C2499E47700F8A9FF /* CanvasView.swift in Sources */,
+				5A187596249A0D1D00C966E5 /* Recognizer.swift in Sources */,
 				5A697F1E2499DDF400F8A9FF /* ContentView.swift in Sources */,
+				5A187593249A013800C966E5 /* KanjiDictionary.swift in Sources */,
+				5A9B3734249A2B7B008FA727 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +413,7 @@
 				DEVELOPMENT_TEAM = DVQ96RL2KL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "KanjiLookup-SwiftUI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,6 +434,7 @@
 				DEVELOPMENT_TEAM = DVQ96RL2KL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "KanjiLookup-SwiftUI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +521,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A7C0E2B249A2CD900CEDD58 /* XCRemoteSwiftPackageReference "StringTools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shinjukunian/StringTools.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		5AB2E8B4249A289300854EBB /* XCRemoteSwiftPackageReference "zinnia-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shinjukunian/zinnia-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A7C0E2C249A2CD900CEDD58 /* StringTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A7C0E2B249A2CD900CEDD58 /* XCRemoteSwiftPackageReference "StringTools" */;
+			productName = StringTools;
+		};
+		5AB2E8B5249A289300854EBB /* Zinnia-Swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AB2E8B4249A289300854EBB /* XCRemoteSwiftPackageReference "zinnia-swift" */;
+			productName = "Zinnia-Swift";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A697F0E2499DDF400F8A9FF /* Project object */;
 }
