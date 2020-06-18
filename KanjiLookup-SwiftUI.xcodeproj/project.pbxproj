@@ -53,6 +53,7 @@
 		5A697F3B2499E47700F8A9FF /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		5A9B3733249A2B7B008FA727 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5AB2E8AE249A236200854EBB /* StringTools */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StringTools; path = ../KanjiLookup/Kanjidictionary/StringTools; sourceTree = "<group>"; };
+		5AD68447249B0098004F5675 /* KanjiLookup-SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KanjiLookup-SwiftUI.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 		5A697F182499DDF400F8A9FF /* KanjiLookup-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				5AD68447249B0098004F5675 /* KanjiLookup-SwiftUI.entitlements */,
 				5A697F192499DDF400F8A9FF /* AppDelegate.swift */,
 				5A9B3733249A2B7B008FA727 /* Extensions.swift */,
 				5A697F1B2499DDF400F8A9FF /* SceneDelegate.swift */,
@@ -408,6 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "KanjiLookup-SwiftUI/KanjiLookup-SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KanjiLookup-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = DVQ96RL2KL;
@@ -420,6 +423,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.telethon.KanjiLookup-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -429,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "KanjiLookup-SwiftUI/KanjiLookup-SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KanjiLookup-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = DVQ96RL2KL;
@@ -441,6 +446,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.telethon.KanjiLookup-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

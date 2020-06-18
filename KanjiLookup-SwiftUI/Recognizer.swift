@@ -27,7 +27,7 @@ class Recognizer:ObservableObject{
         }
     }
     
-    lazy var _recognizer: Zinnia_Swift.Recognizer = {
+    fileprivate lazy var _recognizer: Zinnia_Swift.Recognizer = {
         
         guard let url=Bundle.main.url(forResource: "zinnia", withExtension: "model") else{
             fatalError("Model not found")
@@ -58,6 +58,12 @@ class Recognizer:ObservableObject{
         _recognizer.add(stroke: self.currentStroke)
         self.characters = _recognizer.classify().map({$0.character})
         self.currentStroke = Stroke()
-        
+    }
+    
+    func undoLast(){
+        self.strokes=self.strokes.dropLast()
+        _recognizer.clear()
+        self.currentStroke = Stroke()
+        self.characters = _recognizer.classify(strokes: self.strokes).map({$0.character})
     }
 }

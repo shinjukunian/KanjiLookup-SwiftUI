@@ -11,15 +11,15 @@ import StringTools
 
 struct ContentView: View {
     
-    let recognizer=Recognizer()
-    let dictionary=KanjiDictionary(url: KanjiDictionary.dictionaryURL)
+    let recognizer = Recognizer()
+    let dictionary = KanjiDictionary(url: KanjiDictionary.dictionaryURL)
     
-    @State var characters:[KanjiDictionary.KanjiCharacter]=[KanjiDictionary.KanjiCharacter]()
+    @State var characters = [KanjiDictionary.KanjiCharacter]()
 
     
     var body: some View {
         
-        return VStack(alignment: .center, spacing: 10, content: {
+        return VStack(alignment: .center, spacing: 8, content: {
             List(characters, id: \.character, rowContent: {entry in
                 return KanjiInfoRow(character: entry)
             }).onReceive(recognizer.$characters, perform: {kanji in
@@ -30,8 +30,9 @@ struct ContentView: View {
             
             CanvasView().aspectRatio(1, contentMode: .fit)
                 .environmentObject(recognizer)
+                .padding(.bottom, 8)
         })
-        .padding(.horizontal, 12.0)
+        
         
         
     }
@@ -39,7 +40,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(characters: [KanjiDictionary(url: KanjiDictionary.dictionaryURL).kanjiCaracter(for: "熊")!, KanjiDictionary(url: KanjiDictionary.dictionaryURL).kanjiCaracter(for: "手")!])
+        let dictionary=KanjiDictionary(url: KanjiDictionary.dictionaryURL)
+        return ContentView(characters: [
+            dictionary.kanjiCaracter(for: "熊")!,
+            dictionary.kanjiCaracter(for: "手")!
+        ])
     }
 }
 
@@ -54,6 +59,18 @@ struct KanjiInfoRow:View{
             Text(character.reading)
                 .foregroundColor(Color.gray)
                 .multilineTextAlignment(.trailing)
+        }
+        .contextMenu {
+            Button(action: {
+                UIPasteboard.general.string = self.character.character
+            }, label: {
+                Text("Copy Character")
+            })
+            Button(action: {
+                UIPasteboard.general.string = self.character.reading
+            }, label: {
+                Text("Copy Reading")
+            })
         }
         
     }

@@ -30,6 +30,14 @@ struct CanvasView:View{
                     .multilineTextAlignment(.center)
             })
             Spacer()
+            Button(action: {
+                self.recognizer.undoLast()
+                
+            }, label: {
+                Text("Undo")
+                    .foregroundColor(Color.red)
+                    .multilineTextAlignment(.center)
+            })
         })
         
         return GeometryReader(content: {geometry in
