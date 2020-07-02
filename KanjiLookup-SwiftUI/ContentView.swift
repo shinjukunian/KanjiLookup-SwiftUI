@@ -16,7 +16,6 @@ struct ContentView: View {
     
     @State var characters = [KanjiDictionary.KanjiCharacter]()
 
-    
     var body: some View {
         
         return VStack(alignment: .center, spacing: 8, content: {
@@ -28,9 +27,24 @@ struct ContentView: View {
                     .compactMap {self.dictionary.kanjiCaracter(for: $0)}
             })
             
-            CanvasView().aspectRatio(1, contentMode: .fit)
-                .environmentObject(recognizer)
-                .padding(.bottom, 8)
+            if #available(iOS 14.0, *) {
+                ZStack(alignment: .bottom, content: {
+                    
+                    RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        .stroke(Color.red, lineWidth: 2)
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.quaternaryLabel), alignment: .center)
+                    
+                    FancyCanvas().environmentObject(recognizer)
+                    
+                }).padding(8)
+                    
+            } else {
+                CanvasView().aspectRatio(1, contentMode: .fit)
+                    .environmentObject(recognizer)
+                    .padding(.bottom, 8)
+            }
         })
         
         

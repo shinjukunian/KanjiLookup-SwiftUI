@@ -57,7 +57,7 @@ struct CanvasView:View{
                     }
                     
                 })
-                .stroke(lineWidth: 1)
+                .stroke(lineWidth: 2)
                 
                 buttons.padding()
                 

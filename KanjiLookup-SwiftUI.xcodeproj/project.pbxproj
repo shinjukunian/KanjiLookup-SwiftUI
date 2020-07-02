@@ -20,6 +20,7 @@
 		5A697F3C2499E47700F8A9FF /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F3B2499E47700F8A9FF /* CanvasView.swift */; };
 		5A7C0E2D249A2CD900CEDD58 /* StringTools in Frameworks */ = {isa = PBXBuildFile; productRef = 5A7C0E2C249A2CD900CEDD58 /* StringTools */; };
 		5A9B3734249A2B7B008FA727 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B3733249A2B7B008FA727 /* Extensions.swift */; };
+		5AB1683524ADB21B00FA0A87 /* FancyCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1683424ADB21B00FA0A87 /* FancyCanvasView.swift */; };
 		5AB2E8A6249A131800854EBB /* zinnia.model in Resources */ = {isa = PBXBuildFile; fileRef = 5A187594249A055800C966E5 /* zinnia.model */; };
 		5AB2E8B6249A289300854EBB /* Zinnia-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB2E8B5249A289300854EBB /* Zinnia-Swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		5A697F322499DDFA00F8A9FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A697F3B2499E47700F8A9FF /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		5A9B3733249A2B7B008FA727 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5AB1683424ADB21B00FA0A87 /* FancyCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyCanvasView.swift; sourceTree = "<group>"; };
 		5AB2E8AE249A236200854EBB /* StringTools */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StringTools; path = ../KanjiLookup/Kanjidictionary/StringTools; sourceTree = "<group>"; };
 		5AD68447249B0098004F5675 /* KanjiLookup-SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KanjiLookup-SwiftUI.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 				5A697F1B2499DDF400F8A9FF /* SceneDelegate.swift */,
 				5A697F1D2499DDF400F8A9FF /* ContentView.swift */,
 				5A697F3B2499E47700F8A9FF /* CanvasView.swift */,
+				5AB1683424ADB21B00FA0A87 /* FancyCanvasView.swift */,
 				5A187595249A0D1D00C966E5 /* Recognizer.swift */,
 				5A187592249A013800C966E5 /* KanjiDictionary.swift */,
 				5A697F1F2499DDF900F8A9FF /* Assets.xcassets */,
@@ -190,7 +193,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "telethon k.k.";
 				TargetAttributes = {
 					5A697F152499DDF400F8A9FF = {
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB1683524ADB21B00FA0A87 /* FancyCanvasView.swift in Sources */,
 				5A697F1A2499DDF400F8A9FF /* AppDelegate.swift in Sources */,
 				5A697F1C2499DDF400F8A9FF /* SceneDelegate.swift in Sources */,
 				5A697F3C2499E47700F8A9FF /* CanvasView.swift in Sources */,
@@ -318,6 +322,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -378,6 +383,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

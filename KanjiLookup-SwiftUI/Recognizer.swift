@@ -9,8 +9,13 @@
 import Foundation
 import SwiftUI
 import Zinnia_Swift
+import Combine
 
-class Recognizer:ObservableObject{
+class Recognizer:ObservableObject, Subscriber{
+
+    
+    typealias Input = [[CGPoint]]
+    typealias Failure = Never
     
     @Published var currentStroke: Stroke = Stroke()
     @Published var strokes:[Stroke]=[Stroke]()
@@ -65,5 +70,24 @@ class Recognizer:ObservableObject{
         _recognizer.clear()
         self.currentStroke = Stroke()
         self.characters = _recognizer.classify(strokes: self.strokes).map({$0.character})
+    }
+    
+    func add(stroke:[CGPoint]){
+        stroke.forEach {self.add(point: $0)}
+        finishStroke()
+    }
+    
+    func receive(subscription: Subscription) {
+        subscription.request(.unlimited)
+    }
+    
+    func receive(_ input: [[CGPoint]]) -> Subscribers.Demand {
+        self.clear()
+        input.forEach({self.add(stroke: $0)})
+        return .unlimited
+    }
+    
+    func receive(completion: Subscribers.Completion<Never>) {
+        
     }
 }
