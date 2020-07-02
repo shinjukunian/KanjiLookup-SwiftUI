@@ -6,10 +6,12 @@
 //  Copyright © 2020 telethon k.k. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import Foundation
-import UIKit
 import PencilKit
 import SwiftUI
+
 
 @available(iOS 14.0, *)
 struct FancyCanvasWrapper: UIViewRepresentable {
@@ -65,13 +67,15 @@ struct FancyCanvasWrapper: UIViewRepresentable {
 
 
 @available(iOS 14.0, *)
-struct FancyCanvas:View{
+public struct FancyCanvas:View{
     
     @EnvironmentObject var recognizer:Recognizer
     
     @State private var canvasView = PKCanvasView()
     
-    var body: some View{
+    public init(){}
+    
+    public var body: some View{
         let fancyCanvas=FancyCanvasWrapper(canvas: $canvasView)
         
         let buttons=HStack(alignment: .firstTextBaseline, spacing: 0, content: {
@@ -139,3 +143,5 @@ extension PKCanvasView{
         self.drawing=PKDrawing()
     }
 }
+
+#endif

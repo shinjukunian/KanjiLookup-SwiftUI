@@ -8,6 +8,7 @@
 
 import SwiftUI
 import StringTools
+import CanvasView
 
 struct ContentView: View {
     
@@ -28,17 +29,8 @@ struct ContentView: View {
             })
             
             if #available(iOS 14.0, *) {
-                ZStack(alignment: .bottom, content: {
-                    
-                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .stroke(Color.red, lineWidth: 2)
-                        .background(
-                            RoundedRectangle(cornerRadius: 15)
-                            .foregroundColor(.quaternaryLabel), alignment: .center)
-                    
-                    FancyCanvas().environmentObject(recognizer)
-                    
-                }).padding(8)
+                FancyCanvas().environmentObject(recognizer)
+                    .padding(8)
                     
             } else {
                 CanvasView().aspectRatio(1, contentMode: .fit)
@@ -59,41 +51,5 @@ struct ContentView_Previews: PreviewProvider {
             dictionary.kanjiCaracter(for: "熊")!,
             dictionary.kanjiCaracter(for: "手")!
         ])
-    }
-}
-
-
-struct KanjiInfoRow:View{
-    var character:KanjiDictionary.KanjiCharacter
-    
-    var body: some View{
-        HStack {
-            Text(character.character)
-            Spacer()
-            Text(character.reading)
-                .foregroundColor(Color.gray)
-                .multilineTextAlignment(.trailing)
-        }
-        .contextMenu {
-            Button(action: {
-                UIPasteboard.general.string = self.character.character
-            }, label: {
-                Text("Copy Character")
-            })
-            Button(action: {
-                UIPasteboard.general.string = self.character.reading
-            }, label: {
-                Text("Copy Reading")
-            })
-        }
-        
-    }
-    
-}
-
-struct KanjiInfoRow_Previews: PreviewProvider {
-    static var previews: some View {
-        guard let entry=KanjiDictionary(url: KanjiDictionary.dictionaryURL).kanjiCaracter(for: "熊") else {fatalError()}
-        return KanjiInfoRow(character: entry)
     }
 }

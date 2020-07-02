@@ -8,11 +8,13 @@
 
 import SwiftUI
 
-struct CanvasView:View{
+public struct CanvasView:View{
     
     @EnvironmentObject var recognizer:Recognizer
     
-    var body: some View{
+    public init(){}
+    
+    public var body: some View{
         let drag=DragGesture(minimumDistance: 1, coordinateSpace: .local)
             .onChanged({gesture in
                 self.recognizer.add(point: gesture.location)

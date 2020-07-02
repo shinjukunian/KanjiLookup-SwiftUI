@@ -11,16 +11,15 @@ import SwiftUI
 import Zinnia_Swift
 import Combine
 
-class Recognizer:ObservableObject, Subscriber{
+public class Recognizer:ObservableObject, Subscriber{
 
-    
-    typealias Input = [[CGPoint]]
-    typealias Failure = Never
+    public typealias Input = [[CGPoint]]
+    public typealias Failure = Never
     
     @Published var currentStroke: Stroke = Stroke()
     @Published var strokes:[Stroke]=[Stroke]()
     
-    @Published var characters:[String] = [String]()
+    @Published public var characters:[String] = [String]()
     
     var drawStrokes:[Stroke]{
         return self.strokes + [self.currentStroke]
@@ -46,6 +45,7 @@ class Recognizer:ObservableObject, Subscriber{
         }
     }()
     
+    public init(){}
     
     func clear(){
         self.strokes.removeAll()
@@ -77,17 +77,17 @@ class Recognizer:ObservableObject, Subscriber{
         finishStroke()
     }
     
-    func receive(subscription: Subscription) {
+    public func receive(subscription: Subscription) {
         subscription.request(.unlimited)
     }
     
-    func receive(_ input: [[CGPoint]]) -> Subscribers.Demand {
+    public func receive(_ input: [[CGPoint]]) -> Subscribers.Demand {
         self.clear()
         input.forEach({self.add(stroke: $0)})
         return .unlimited
     }
     
-    func receive(completion: Subscribers.Completion<Never>) {
+    public func receive(completion: Subscribers.Completion<Never>) {
         
     }
 }

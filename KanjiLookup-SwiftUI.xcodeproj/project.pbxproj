@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		5A187591249A011700C966E5 /* kanjiDict.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A187590249A011700C966E5 /* kanjiDict.txt */; };
 		5A187593249A013800C966E5 /* KanjiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A187592249A013800C966E5 /* KanjiDictionary.swift */; };
-		5A187596249A0D1D00C966E5 /* Recognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A187595249A0D1D00C966E5 /* Recognizer.swift */; };
+		5A3E1DAE24AEA31100D09C7F /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3E1DAD24AEA31100D09C7F /* InfoRow.swift */; };
+		5A3E1DB424AEA88C00D09C7F /* CanvasView in Frameworks */ = {isa = PBXBuildFile; productRef = 5A3E1DB324AEA88C00D09C7F /* CanvasView */; };
 		5A697F1A2499DDF400F8A9FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F192499DDF400F8A9FF /* AppDelegate.swift */; };
 		5A697F1C2499DDF400F8A9FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F1B2499DDF400F8A9FF /* SceneDelegate.swift */; };
 		5A697F1E2499DDF400F8A9FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F1D2499DDF400F8A9FF /* ContentView.swift */; };
@@ -17,12 +18,9 @@
 		5A697F232499DDF900F8A9FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A697F222499DDF900F8A9FF /* Preview Assets.xcassets */; };
 		5A697F262499DDF900F8A9FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A697F242499DDF900F8A9FF /* LaunchScreen.storyboard */; };
 		5A697F312499DDFA00F8A9FF /* KanjiLookup_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F302499DDFA00F8A9FF /* KanjiLookup_SwiftUITests.swift */; };
-		5A697F3C2499E47700F8A9FF /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A697F3B2499E47700F8A9FF /* CanvasView.swift */; };
 		5A7C0E2D249A2CD900CEDD58 /* StringTools in Frameworks */ = {isa = PBXBuildFile; productRef = 5A7C0E2C249A2CD900CEDD58 /* StringTools */; };
 		5A9B3734249A2B7B008FA727 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9B3733249A2B7B008FA727 /* Extensions.swift */; };
-		5AB1683524ADB21B00FA0A87 /* FancyCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1683424ADB21B00FA0A87 /* FancyCanvasView.swift */; };
 		5AB2E8A6249A131800854EBB /* zinnia.model in Resources */ = {isa = PBXBuildFile; fileRef = 5A187594249A055800C966E5 /* zinnia.model */; };
-		5AB2E8B6249A289300854EBB /* Zinnia-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5AB2E8B5249A289300854EBB /* Zinnia-Swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +37,8 @@
 		5A187590249A011700C966E5 /* kanjiDict.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kanjiDict.txt; sourceTree = "<group>"; };
 		5A187592249A013800C966E5 /* KanjiDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiDictionary.swift; sourceTree = "<group>"; };
 		5A187594249A055800C966E5 /* zinnia.model */ = {isa = PBXFileReference; lastKnownFileType = file; path = zinnia.model; sourceTree = "<group>"; };
-		5A187595249A0D1D00C966E5 /* Recognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recognizer.swift; sourceTree = "<group>"; };
+		5A3E1DAD24AEA31100D09C7F /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		5A3E1DB224AEA86B00D09C7F /* KanjiLookup-SwiftUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "KanjiLookup-SwiftUI"; sourceTree = "<group>"; };
 		5A697F162499DDF400F8A9FF /* KanjiLookup-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KanjiLookup-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A697F192499DDF400F8A9FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A697F1B2499DDF400F8A9FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,9 +50,7 @@
 		5A697F2C2499DDFA00F8A9FF /* KanjiLookup-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KanjiLookup-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A697F302499DDFA00F8A9FF /* KanjiLookup_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiLookup_SwiftUITests.swift; sourceTree = "<group>"; };
 		5A697F322499DDFA00F8A9FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A697F3B2499E47700F8A9FF /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		5A9B3733249A2B7B008FA727 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		5AB1683424ADB21B00FA0A87 /* FancyCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyCanvasView.swift; sourceTree = "<group>"; };
 		5AB2E8AE249A236200854EBB /* StringTools */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StringTools; path = ../KanjiLookup/Kanjidictionary/StringTools; sourceTree = "<group>"; };
 		5AD68447249B0098004F5675 /* KanjiLookup-SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KanjiLookup-SwiftUI.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,8 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AB2E8B6249A289300854EBB /* Zinnia-Swift in Frameworks */,
 				5A7C0E2D249A2CD900CEDD58 /* StringTools in Frameworks */,
+				5A3E1DB424AEA88C00D09C7F /* CanvasView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,9 +102,7 @@
 				5A9B3733249A2B7B008FA727 /* Extensions.swift */,
 				5A697F1B2499DDF400F8A9FF /* SceneDelegate.swift */,
 				5A697F1D2499DDF400F8A9FF /* ContentView.swift */,
-				5A697F3B2499E47700F8A9FF /* CanvasView.swift */,
-				5AB1683424ADB21B00FA0A87 /* FancyCanvasView.swift */,
-				5A187595249A0D1D00C966E5 /* Recognizer.swift */,
+				5A3E1DAD24AEA31100D09C7F /* InfoRow.swift */,
 				5A187592249A013800C966E5 /* KanjiDictionary.swift */,
 				5A697F1F2499DDF900F8A9FF /* Assets.xcassets */,
 				5A697F242499DDF900F8A9FF /* LaunchScreen.storyboard */,
@@ -139,6 +134,7 @@
 		5A697F3E2499FCC000F8A9FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A3E1DB224AEA86B00D09C7F /* KanjiLookup-SwiftUI */,
 				5AB2E8AE249A236200854EBB /* StringTools */,
 			);
 			name = Frameworks;
@@ -161,8 +157,8 @@
 			);
 			name = "KanjiLookup-SwiftUI";
 			packageProductDependencies = (
-				5AB2E8B5249A289300854EBB /* Zinnia-Swift */,
 				5A7C0E2C249A2CD900CEDD58 /* StringTools */,
+				5A3E1DB324AEA88C00D09C7F /* CanvasView */,
 			);
 			productName = "KanjiLookup-SwiftUI";
 			productReference = 5A697F162499DDF400F8A9FF /* KanjiLookup-SwiftUI.app */;
@@ -215,7 +211,6 @@
 			);
 			mainGroup = 5A697F0D2499DDF400F8A9FF;
 			packageReferences = (
-				5AB2E8B4249A289300854EBB /* XCRemoteSwiftPackageReference "zinnia-swift" */,
 				5A7C0E2B249A2CD900CEDD58 /* XCRemoteSwiftPackageReference "StringTools" */,
 			);
 			productRefGroup = 5A697F172499DDF400F8A9FF /* Products */;
@@ -255,14 +250,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AB1683524ADB21B00FA0A87 /* FancyCanvasView.swift in Sources */,
 				5A697F1A2499DDF400F8A9FF /* AppDelegate.swift in Sources */,
 				5A697F1C2499DDF400F8A9FF /* SceneDelegate.swift in Sources */,
-				5A697F3C2499E47700F8A9FF /* CanvasView.swift in Sources */,
-				5A187596249A0D1D00C966E5 /* Recognizer.swift in Sources */,
 				5A697F1E2499DDF400F8A9FF /* ContentView.swift in Sources */,
 				5A187593249A013800C966E5 /* KanjiDictionary.swift in Sources */,
 				5A9B3734249A2B7B008FA727 /* Extensions.swift in Sources */,
+				5A3E1DAE24AEA31100D09C7F /* InfoRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,26 +536,17 @@
 				kind = branch;
 			};
 		};
-		5AB2E8B4249A289300854EBB /* XCRemoteSwiftPackageReference "zinnia-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/shinjukunian/zinnia-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5A3E1DB324AEA88C00D09C7F /* CanvasView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CanvasView;
+		};
 		5A7C0E2C249A2CD900CEDD58 /* StringTools */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5A7C0E2B249A2CD900CEDD58 /* XCRemoteSwiftPackageReference "StringTools" */;
 			productName = StringTools;
-		};
-		5AB2E8B5249A289300854EBB /* Zinnia-Swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5AB2E8B4249A289300854EBB /* XCRemoteSwiftPackageReference "zinnia-swift" */;
-			productName = "Zinnia-Swift";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
