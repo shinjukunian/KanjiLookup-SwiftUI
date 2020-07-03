@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct CanvasView:View{
+public struct SimpleCanvasView:View{
     
     @EnvironmentObject var recognizer:Recognizer
     
@@ -78,6 +78,6 @@ public struct CanvasView:View{
 
 struct CanvasView_Previews: PreviewProvider {
     static var previews: some View {
-        CanvasView().environmentObject(Recognizer())
+        SimpleCanvasView().environmentObject(Recognizer())
     }
 }

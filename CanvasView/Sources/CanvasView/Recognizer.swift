@@ -32,12 +32,8 @@ public class Recognizer:ObservableObject, Subscriber{
     }
     
     fileprivate lazy var _recognizer: Zinnia_Swift.Recognizer = {
-        
-        guard let url=Bundle.main.url(forResource: "zinnia", withExtension: "model") else{
-            fatalError("Model not found")
-        }
         do{
-            let recognizer=try Zinnia_Swift.Recognizer(modelURL: url)
+            let recognizer=try Zinnia_Swift.Recognizer(modelURL: modelURL)
             return recognizer
         }
         catch let error{
@@ -45,7 +41,21 @@ public class Recognizer:ObservableObject, Subscriber{
         }
     }()
     
-    public init(){}
+    fileprivate let modelURL:URL
+    
+    public var queue=DispatchQueue(label: "recognizerQueue", qos: .userInitiated)
+    
+    public init(){
+        guard let url=Bundle.main.url(forResource: "zinnia", withExtension: "model") else{
+            fatalError("Model not found")
+        }
+        self.modelURL=url
+    }
+    
+    
+    init(url:URL){
+        self.modelURL=url
+    }
     
     func clear(){
         self.strokes.removeAll()
@@ -61,7 +71,12 @@ public class Recognizer:ObservableObject, Subscriber{
     func finishStroke(){
         self.strokes.append(self.currentStroke)
         _recognizer.add(stroke: self.currentStroke)
-        self.characters = _recognizer.classify().map({$0.character})
+        self.queue.async {
+            let characters = self._recognizer.classify().map({$0.character})
+            DispatchQueue.main.async {
+                self.characters=characters
+            }
+        }
         self.currentStroke = Stroke()
     }
     

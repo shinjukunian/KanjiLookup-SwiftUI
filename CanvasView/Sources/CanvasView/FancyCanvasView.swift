@@ -33,6 +33,8 @@ struct FancyCanvasWrapper: UIViewRepresentable {
     }
     
     @Binding var canvas : PKCanvasView
+    @Binding var strokeColor : UIColor
+    @Binding var strokeWidth : CGFloat
     
     class DrawnStrokes:ObservableObject{
         @Published var strokes=[[CGPoint]]()
@@ -48,7 +50,7 @@ struct FancyCanvasWrapper: UIViewRepresentable {
 
     func makeUIView(context: Context) -> PKCanvasView {
         
-        canvas.tool = PKInkingTool(.pen, color: .label)
+        canvas.tool = PKInkingTool(.pen, color: strokeColor, width: strokeWidth)
         canvas.allowsFingerDrawing=true
         canvas.delegate = context.coordinator
         canvas.isScrollEnabled=false
@@ -58,7 +60,7 @@ struct FancyCanvasWrapper: UIViewRepresentable {
     }
 
     func updateUIView(_ canvasView: PKCanvasView, context: Context) {
-        
+        canvas.tool = PKInkingTool(.pen, color: strokeColor, width: strokeWidth)
     }
     
     
@@ -73,10 +75,15 @@ public struct FancyCanvas:View{
     
     @State private var canvasView = PKCanvasView()
     
+    @State public var backgroundColor = Color.quaternaryLabel
+    @State public var foregroundColor = Color.red
+    @State public var strokeColor = UIColor.label
+    @State public var strokeWidth : CGFloat = 5
+    
     public init(){}
     
     public var body: some View{
-        let fancyCanvas=FancyCanvasWrapper(canvas: $canvasView)
+        let fancyCanvas=FancyCanvasWrapper(canvas: $canvasView, strokeColor: $strokeColor, strokeWidth: $strokeWidth)
         
         let buttons=HStack(alignment: .firstTextBaseline, spacing: 0, content: {
             Button(action: {
@@ -84,7 +91,7 @@ public struct FancyCanvas:View{
                 
             }, label: {
                 Text("Clear")
-                    .foregroundColor(Color.red)
+                    .foregroundColor(foregroundColor)
                     .multilineTextAlignment(.center)
             })
             Spacer()
@@ -93,7 +100,7 @@ public struct FancyCanvas:View{
                 
             }, label: {
                 Text("Undo")
-                    .foregroundColor(Color.red)
+                    .foregroundColor(foregroundColor)
                     .multilineTextAlignment(.center)
             })
         })
@@ -107,7 +114,7 @@ public struct FancyCanvas:View{
                     .stroke(Color.red, lineWidth: 2)
                     .background(
                         RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(.quaternaryLabel), alignment: .center)
+                        .foregroundColor(backgroundColor), alignment: .center)
                 
                 fancyCanvas
                 

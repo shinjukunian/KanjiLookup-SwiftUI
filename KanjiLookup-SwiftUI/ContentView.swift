@@ -29,18 +29,19 @@ struct ContentView: View {
             })
             
             if #available(iOS 14.0, *) {
-                FancyCanvas().environmentObject(recognizer)
+                FancyCanvas()
+                    .environmentObject(recognizer)
                     .padding(8)
+                    .aspectRatio(1, contentMode: .fit)
+                    
                     
             } else {
-                CanvasView().aspectRatio(1, contentMode: .fit)
+                SimpleCanvasView().aspectRatio(1, contentMode: .fit)
                     .environmentObject(recognizer)
                     .padding(.bottom, 8)
             }
         })
-        
-        
-        
+
     }
 }
 

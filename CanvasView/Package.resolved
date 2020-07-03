@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Zinnia-Swift",
+        "repositoryURL": "https://github.com/shinjukunian/zinnia-swift.git",
+        "state": {
+          "branch": "master",
+          "revision": "567ac6276275ae960bd34df3e765ce373bdddd9f",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

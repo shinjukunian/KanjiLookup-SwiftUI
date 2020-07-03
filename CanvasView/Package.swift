@@ -20,7 +20,7 @@ let package = Package(
         .package(name: "Zinnia-Swift", url: "https://github.com/shinjukunian/zinnia-swift.git", .branch("master"))
     ],
     targets: [
-        .target(name: "CanvasView", dependencies: ["Zinnia-Swift"], path: "CanvasView", exclude: [], sources: nil, publicHeadersPath: nil, cSettings: nil, cxxSettings: nil, swiftSettings: nil, linkerSettings: nil)
+        .target(name: "CanvasView", dependencies: ["Zinnia-Swift"], path: nil, exclude: [], sources: nil, publicHeadersPath: nil, cSettings: nil, cxxSettings: nil, swiftSettings: nil, linkerSettings: nil)
 
         
         
