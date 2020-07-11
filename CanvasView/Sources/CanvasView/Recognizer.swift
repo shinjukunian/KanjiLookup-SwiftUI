@@ -87,22 +87,39 @@ public class Recognizer:ObservableObject, Subscriber{
         self.characters = _recognizer.classify(strokes: self.strokes).map({$0.character})
     }
     
-    func add(stroke:[CGPoint]){
-        stroke.forEach {self.add(point: $0)}
-        finishStroke()
-    }
     
     public func receive(subscription: Subscription) {
         subscription.request(.unlimited)
     }
     
     public func receive(_ input: [[CGPoint]]) -> Subscribers.Demand {
-        self.clear()
-        input.forEach({self.add(stroke: $0)})
+        self._recognizer.clear()
+        self.strokes = input.strokes
+        
+        self.queue.async {
+            self._recognizer.clear()
+            let characters = self._recognizer.classify(strokes: input.strokes).map({$0.character})
+            DispatchQueue.main.async {
+                self.characters=characters
+            }
+        }
         return .unlimited
     }
     
     public func receive(completion: Subscribers.Completion<Never>) {
         
+    }
+}
+
+
+extension Array where Element ==  CGPoint{
+    var stroke:Stroke{
+        return Stroke(points: self.map { Point(cgPoint: $0) })
+    }
+}
+
+extension Array where Element == [CGPoint]{
+    var strokes:[Stroke]{
+        return self.map {$0.stroke}
     }
 }

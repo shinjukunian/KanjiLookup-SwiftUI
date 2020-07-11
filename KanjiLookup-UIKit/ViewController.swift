@@ -31,11 +31,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate=self
         self.tableView.dataSource=self
         
-//        self.children.compactMap({$0 as? CanvasController}).first?.delegate=self
+        
         
         self.children.compactMap({$0 as? CanvasController}).first?.subject.sink(receiveValue: {characters in
             self.items=characters.compactMap({self.dictionary.kanjiCaracter(for: $0)})
         }).store(in: &cancellables)
+        
         
     }
 

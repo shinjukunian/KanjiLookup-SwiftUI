@@ -16,6 +16,10 @@ import UIKit
     func canvasControllerRecognized(characters:[String])
 }
 
+protocol CanvasView {
+    func clear()
+    func undo()
+}
 
 public class CanvasController:UIHostingController<AnyView>, Subscriber{
     
@@ -31,14 +35,36 @@ public class CanvasController:UIHostingController<AnyView>, Subscriber{
     
     @objc public weak var delegate:CanvasControllerDelegate?
     
+    var configuration=CanvasConfiguration()
+    
+    
+    @available(iOS 14.0, *)
+    public var foregroundColor:UIColor{
+        get{
+            return UIColor(self.configuration.foregroundColor)
+        }
+        set{
+            self.configuration.foregroundColor=Color(newValue)
+        }
+    }
+    
+    public var showStandardButtons:Bool{
+        get{
+            return self.configuration.showStandardButtons
+        }
+        set{
+            self.configuration.showStandardButtons=newValue
+        }
+    }
+    
     @objc required dynamic init?(coder aDecoder: NSCoder) {
         
         let view:AnyView
         if #available(iOS 14.0, *) {
-            let canvas=FancyCanvas().environmentObject(recognizer)
+            let canvas=FancyCanvas().environmentObject(recognizer).environmentObject(configuration)
             view=AnyView(canvas)
         } else {
-            view=AnyView(SimpleCanvasView().environmentObject(recognizer))
+            view=AnyView(SimpleCanvasView().environmentObject(recognizer).environmentObject(configuration))
         }
         super.init(coder: aDecoder, rootView: view)
         recognizer.$characters.subscribe(self)
@@ -61,6 +87,18 @@ public class CanvasController:UIHostingController<AnyView>, Subscriber{
         
     }
     
+    @objc public func clear(){
+        if let canvas=self.rootView as? CanvasView{
+            canvas.clear()
+        }
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .clear
+    }
+    
+    
+    
 }
 #endif
-

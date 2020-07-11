@@ -69,39 +69,35 @@ struct FancyCanvasWrapper: UIViewRepresentable {
 
 
 @available(iOS 14.0, *)
-public struct FancyCanvas:View{
+public struct FancyCanvas:View, CanvasView{
     
     @EnvironmentObject var recognizer:Recognizer
     
+    @EnvironmentObject var configuration:CanvasConfiguration
+    
     @State private var canvasView = PKCanvasView()
-    
-    @State public var backgroundColor = Color.quaternaryLabel
-    @State public var foregroundColor = Color.red
-    @State public var strokeColor = UIColor.label
-    @State public var strokeWidth : CGFloat = 5
-    
+        
     public init(){}
     
     public var body: some View{
-        let fancyCanvas=FancyCanvasWrapper(canvas: $canvasView, strokeColor: $strokeColor, strokeWidth: $strokeWidth)
+        let fancyCanvas=FancyCanvasWrapper(canvas: $canvasView, strokeColor: $configuration.strokeColor, strokeWidth: $configuration.strokeWidth)
         
-        let buttons=HStack(alignment: .firstTextBaseline, spacing: 0, content: {
+        let buttons=HStack(alignment: .center, spacing: 0, content: {
             Button(action: {
                 canvasView.clear()
                 
             }, label: {
-                Text("Clear")
-                    .foregroundColor(foregroundColor)
-                    .multilineTextAlignment(.center)
+                Image(systemName: "clear").imageScale(.large)
+                    .foregroundColor(configuration.foregroundColor)
             })
             Spacer()
             Button(action: {
                 canvasView.removeLastStroke()
                 
             }, label: {
-                Text("Undo")
-                    .foregroundColor(foregroundColor)
-                    .multilineTextAlignment(.center)
+                Image(systemName: "arrow.counterclockwise").imageScale(.large)
+                    .foregroundColor(configuration.foregroundColor)
+                    
             })
         })
         
@@ -111,14 +107,18 @@ public struct FancyCanvas:View{
             ZStack(alignment: .bottom, content: {
                 
                 RoundedRectangle(cornerRadius: 15, style: .continuous)
-                    .stroke(Color.red, lineWidth: 2)
+                    .stroke(configuration.foregroundColor, lineWidth: 2)
                     .background(
                         RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(backgroundColor), alignment: .center)
+                        .foregroundColor(configuration.backgroundColor), alignment: .center)
                 
                 fancyCanvas
                 
-                buttons.padding()
+                if configuration.showStandardButtons{
+                    buttons.padding()
+                }
+                
+                
                 
             })
             
@@ -129,13 +129,20 @@ public struct FancyCanvas:View{
             
         })
     }
+    
+    func clear(){
+        canvasView.clear()
+    }
+    func undo() {
+        canvasView.removeLastStroke()
+    }
 }
 
 @available(iOS 14.0, *)
 struct FancyCanvasView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            FancyCanvas().environmentObject(Recognizer())
+            FancyCanvas().environmentObject(Recognizer()).environmentObject(CanvasConfiguration())
             
         }
     }

@@ -8,9 +8,10 @@
 
 import SwiftUI
 
-public struct SimpleCanvasView:View{
+public struct SimpleCanvasView:View, CanvasView{
     
     @EnvironmentObject var recognizer:Recognizer
+    @EnvironmentObject var configuration:CanvasConfiguration
     
     public init(){}
     
@@ -22,23 +23,21 @@ public struct SimpleCanvasView:View{
                 self.recognizer.finishStroke()
             })
         
-        let buttons=HStack(alignment: .firstTextBaseline, spacing: 0, content: {
+        let buttons=HStack(alignment: .center, spacing: 0, content: {
             Button(action: {
                 self.recognizer.clear()
                 
             }, label: {
-                Text("Clear")
-                    .foregroundColor(Color.red)
-                    .multilineTextAlignment(.center)
+                Image(systemName: "clear").imageScale(.large)
+                    .foregroundColor(configuration.foregroundColor)
             })
             Spacer()
             Button(action: {
                 self.recognizer.undoLast()
                 
             }, label: {
-                Text("Undo")
-                    .foregroundColor(Color.red)
-                    .multilineTextAlignment(.center)
+                Image(systemName: "arrow.counterclockwise").imageScale(.large)
+                    .foregroundColor(configuration.foregroundColor)
             })
         })
         
@@ -47,10 +46,10 @@ public struct SimpleCanvasView:View{
             ZStack(alignment: .bottom, content: {
                 
                 RoundedRectangle(cornerRadius: 15, style: .continuous)
-                    .stroke(Color.red, lineWidth: 2)
+                    .stroke(configuration.foregroundColor, lineWidth: 2)
                     .background(
                         RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(.quaternaryLabel), alignment: .center)
+                            .foregroundColor(configuration.backgroundColor), alignment: .center)
                 
                 Path({path in
                     for stroke in self.recognizer.drawStrokes{
@@ -59,9 +58,11 @@ public struct SimpleCanvasView:View{
                     }
                     
                 })
-                .stroke(lineWidth: 2)
+                .stroke(style: StrokeStyle(lineWidth: configuration.strokeWidth, lineCap: .round, lineJoin: .round, miterLimit: 1, dash: [], dashPhase: 0))
                 
-                buttons.padding()
+                if configuration.showStandardButtons{
+                    buttons.padding()
+                }
                 
             })
             .gesture(drag)
@@ -73,11 +74,17 @@ public struct SimpleCanvasView:View{
     
     }
     
+    func clear(){
+        self.recognizer.clear()
+    }
+    func undo() {
+        self.recognizer.undoLast()
+    }
     
 }
 
 struct CanvasView_Previews: PreviewProvider {
     static var previews: some View {
-        SimpleCanvasView().environmentObject(Recognizer())
+        SimpleCanvasView().environmentObject(Recognizer()).environmentObject(CanvasConfiguration())
     }
 }

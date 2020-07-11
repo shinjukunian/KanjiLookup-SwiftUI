@@ -9,6 +9,7 @@
 import SwiftUI
 import StringTools
 import CanvasView
+import UIKit
 
 struct ContentView: View {
     
@@ -31,6 +32,7 @@ struct ContentView: View {
             if #available(iOS 14.0, *) {
                 FancyCanvas()
                     .environmentObject(recognizer)
+                    .environmentObject(CanvasConfiguration())
                     .padding(8)
                     .aspectRatio(1, contentMode: .fit)
                     
